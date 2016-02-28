@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
 		DieWithSystemMessage("socket() failed");
 	
 	struct sockaddr_in servAddr;
-	memset(&servAddr, 0, sizeof(servAddr));
+	memset(&servAddr, 0, sizeof(servAddr)); // 确保未显式设置的结构的任何部分都包含0 
 	servAddr.sin_family = AF_INET;
 	
 	int rtnVal = inet_pton(AF_INET, servIP, &servAddr.sin_addr.s_addr);
